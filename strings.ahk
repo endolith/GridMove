@@ -17,6 +17,7 @@ setlanguage:
     tray_showgrid=Afficher la grille
     tray_shownumbers=Afficher la nomérotation de grille
     tray_lbuttondrag=Utiliser: Méthode glisser par le titre
+    tray_mbuttontitledrag=Utiliser: Glisser le titre (bouton central)
     tray_mbuttondrag=Utiliser: Méthode avec bouton central
     tray_edgedrag=Utiliser: Métode de bordure
     tray_edgetime=Définir le temps de bordure...
@@ -86,6 +87,7 @@ setlanguage:
     tray_showgrid=Show Grid
     tray_shownumbers=Show Numbers On Grid
     tray_lbuttondrag=Use Drag On Window Title method
+    tray_mbuttontitledrag=Use Middle-Click Title Drag method
     tray_mbuttondrag=Use Drag With Middle Button method
     tray_edgedrag=Use Drag Window To Edge method
     tray_edgetime=Set Edge Time...

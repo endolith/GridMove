@@ -5,6 +5,7 @@
 
   ;;options:
   MButtonDrag := True ;to be able to drag a window using the 3rd mouse button
+  MButtonTitleDrag := False ;to be able to drag a window by its title using the 3rd mouse button
   LButtonDrag:=True ;to be able to drag a window by its title
   EdgeDrag := True ;to be able to bring the grid up when dragging a window to the edge
   EdgeTime := 500
@@ -128,7 +129,7 @@
   If UseCommand
     Hotkey, %CommandHotkey%, Command
 
-  If MButtonDrag
+  If MButtonDrag or MButtonTitleDrag
     Hotkey, MButton, MButtonMove
 
   If UseFastMove
@@ -256,6 +257,7 @@ createOptionsMenu()
   Menu,options_menu, add, %tray_showgrid%, Options_ShowGrid
   Menu,options_menu, add, %tray_shownumbers%, Options_ShowNumbers
   Menu,options_menu, add, %tray_lbuttondrag%, Options_LButtonDrag
+  Menu,options_menu, add, %tray_mbuttontitledrag%, Options_MButtonTitleDrag
   Menu,options_menu, add, %tray_mbuttondrag%, Options_MButtonDrag
   Menu,options_menu, add, %tray_edgedrag%, Options_EdgeDrag
   Menu,options_menu, add, %tray_edgetime%, Options_EdgeTime
@@ -263,6 +265,10 @@ createOptionsMenu()
   Menu,options_menu, add, %tray_gridorder%, Options_GridOrder
   If LButtonDrag
     Menu,options_menu,check, %tray_lbuttondrag%
+  If MButtonTitleDrag
+    Menu,options_menu,check, %tray_mbuttontitledrag%
+  If LButtonDrag or MButtonTitleDrag
+    Menu,options_menu,Enable, %tray_titlesize%
   else
     Menu,options_menu,Disable, %tray_titlesize%
   If MButtonDrag
@@ -449,7 +455,7 @@ return
 
 MButtonMove:
   CoordMode,Mouse,Screen
-  MouseGetPos, OldMouseX, OldMouseY, Window,
+  MouseGetPos, OldMouseX, OldMouseY, Window, MouseControl
   WinGetTitle,WinTitle,ahk_id %Window%
   WinGetClass,WinClass,ahk_id %Window%
   WinGetPos,WinLeft,WinTop,WinWidth,WinHeight,ahk_id%Window%
@@ -481,6 +487,26 @@ MButtonMove:
     sendinput,{MButton up}
     Return
   }
+
+  GoSub, CheckTitleDragZone
+  If (MButtonTitleDrag AND TitleDragZoneActive)
+  {
+    GoSub, MButtonDragActivate
+    return
+  }
+
+  If not MButtonDrag
+  {
+    sendinput,{MButton down}
+    Keywait,mbutton
+    sendinput,{MButton up}
+    Return
+  }
+
+  GoSub, MButtonDragActivate
+  return
+
+MButtonDragActivate:
   KeyWait,MButton,T%MButtonTimeOut%
   if errorlevel = 0
   {
@@ -492,6 +518,27 @@ MButtonMove:
   Hotkey = MButton
   GoSub, DropZoneMode
   return
+
+CheckTitleDragZone:
+  ; Compute position relative to the window under the cursor using the screen
+  ; coords + WinGetPos already captured. Do NOT use CoordMode,Mouse,Relative
+  ; here because middle-click does not activate the window, so Relative coords
+  ; would be measured against the wrong (previously active) window.
+  ;
+  ; Unlike LButton drag, we allow the full title bar width (not just the left
+  ; TitleSize zone) since middle-click has a hold-timeout to distinguish a
+  ; click from a drag, and there is no need to reserve a narrow grab zone.
+  TitleDragZoneActive := false
+  RelMouseX := OldMouseX - WinLeft
+  RelMouseY := OldMouseY - WinTop
+
+  If (RelMouseY > CaptionSize OR RelMouseY <= BorderSize + 1 OR WinTitle = "")
+    return
+
+  If (RelMouseX > TitleLeft AND WinWidth > 170
+      AND (MouseControl = "" OR DisableTitleButtonsDetection))
+    TitleDragZoneActive := true
+return
 
 ;**********************edge/lbutton method
 
@@ -1042,15 +1089,31 @@ Options_LButtonDrag:
   {
     Menu,options_menu,Uncheck, %tray_lbuttondrag%
     LButtonDrag := false
-    Menu,options_menu,Disable, %tray_titlesize%,
   }
   else
   {
     Menu,options_menu,check, %tray_lbuttondrag%
     LButtonDrag := true
-    Menu,options_menu,Enable, %tray_titlesize%,
   }
+  GoSub, UpdateTitleSizeMenu
   GoSub, WriteIni
+return
+
+Options_MButtonTitleDrag:
+  If MButtonTitleDrag
+    MButtonTitleDrag := false
+  else
+    MButtonTitleDrag := true
+  GoSub, UpdateTitleSizeMenu
+  GoSub, WriteIni
+  reload
+return
+
+UpdateTitleSizeMenu:
+  If LButtonDrag or MButtonTitleDrag
+    Menu,options_menu,Enable, %tray_titlesize%
+  else
+    Menu,options_menu,Disable, %tray_titlesize%
 return
 
 Options_mbuttonDrag:

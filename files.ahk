@@ -23,7 +23,7 @@ ReadIni:
     IniRead,isFirstRun            ,%ScriptDir%,IniSettings,IniVersion,false
     
 
-  IniVersion=15
+  IniVersion=17
   IfExist,%ScriptDir%
   {
     IniRead,IniVersion            ,%ScriptDir%,IniSettings,IniVersion,1
@@ -121,10 +121,17 @@ ReadIni:
       IniVersion = 15
       IniWrite,%IniVersion%      ,%ScriptDir%, IniSettings,Iniversion
     }
+    if IniVersion = 15
+    {
+      IniWrite,%MButtonTitleDrag%,%ScriptDir%,InterfaceSettings,MButtonTitleDrag
+      IniVersion = 16
+      IniWrite,%IniVersion%      ,%ScriptDir%, IniSettings,Iniversion
+    }
 
     IniRead,GridName         ,%ScriptDir%,GridSettings     ,GridName,Error
     IniRead,LButtonDrag      ,%ScriptDir%,InterfaceSettings,LButtonDrag,Error
     IniRead,MButtonDrag      ,%ScriptDir%,InterfaceSettings,MButtonDrag,Error
+    IniRead,MButtonTitleDrag ,%ScriptDir%,InterfaceSettings,MButtonTitleDrag,Error
     IniRead,EdgeDrag         ,%ScriptDir%,InterfaceSettings,EdgeDrag,Error
     IniRead,EdgeTime         ,%ScriptDir%,OtherSettings    ,EdgeTime,Error
     IniRead,ShowGroupsFlag   ,%ScriptDir%,OtherSettings    ,ShowGroupsFlag,Error
@@ -154,6 +161,7 @@ ReadIni:
       Registered =
 
     If (GridName          = "Error" OR LButtonDrag    = "Error" OR MButtonDrag       = "Error" 
+        OR MButtonTitleDrag = "Error"
         OR EdgeDrag       = "Error" OR EdgeTime       = "Error" OR ShowGroupsFlag    = "Error" 
         OR TitleSize      = "Error" OR ShowGroupsFlag = "Error" OR ShowNumbersFlag   = "Error" 
         OR TitleSize      = "Error" OR GridOrder      = "Error" OR UseCommand        = "Error" 
@@ -207,6 +215,7 @@ WriteIni:
   IniWrite,%GridName%         ,%ScriptDir%,GridSettings     ,GridName
   IniWrite,%LButtonDrag%      ,%ScriptDir%,InterfaceSettings,LButtonDrag
   IniWrite,%MButtonDrag%      ,%ScriptDir%,InterfaceSettings,MButtonDrag
+  IniWrite,%MButtonTitleDrag% ,%ScriptDir%,InterfaceSettings,MButtonTitleDrag
   IniWrite,%EdgeDrag%         ,%ScriptDir%,InterfaceSettings,EdgeDrag
   IniWrite,%EdgeTime%         ,%ScriptDir%,OtherSettings    ,EdgeTime
   IniWrite,%ShowGroupsFlag%   ,%ScriptDir%,OtherSettings    ,ShowGroupsFlag

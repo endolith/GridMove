@@ -17,7 +17,7 @@ Helper:
   If (OldMouseY <= CaptionSize AND OldMouseY > BorderSize + 1 
       AND oldmouseX > CaptionSize AND OldMouseX < TitleSize 
       AND WinTitle != "" AND WinClass != "Shell_TrayWnd" 
-      AND TitleSize < WinWidth - 20 AND LButtonDrag)
+      AND TitleSize < WinWidth - 20 AND (LButtonDrag OR MButtonTitleDrag))
     {
     Tooltip,%helper_2%
     return
@@ -49,7 +49,7 @@ Helper2:
   If (OldMouseY <= CaptionSize AND OldMouseY > BorderSize + 1 
       AND oldmouseX > CaptionSize AND OldMouseX < TitleSize 
       AND WinTitle != "" AND WinClass != "Shell_TrayWnd" 
-      AND TitleSize < WinWidth - 20 AND LButtonDrag)
+      AND TitleSize < WinWidth - 20 AND (LButtonDrag OR MButtonTitleDrag))
     If not image
     {
     SplashImage , GridMove.bmp, B X%MouseX% y%MouseY%, , , ,
