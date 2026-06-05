@@ -1,0 +1,159 @@
+[Groups]
+
+  NumberOfGroups = 13
+  
+[1]
+
+  TriggerTop   = [MonitorReal1Top]
+  TriggerLeft  = [MonitorReal1Left]
+  TriggerBottom= [Monitor1Top]  + 30
+  TriggerRight = [Monitor1Left] + 30
+  
+  GridTop   = [Monitor1Top]
+  GridLeft  = [Monitor1Left]
+  GridBottom= [Monitor1Top] + [Monitor1Height] / 2
+  GridRight = [Monitor1Left] + [Monitor1Width] / 2
+  
+[2]
+
+  TriggerTop   = [MonitorReal1Top]
+  TriggerLeft  = [MonitorReal1Right] - 30
+  TriggerBottom= [MonitorReal1Top] + 30
+  TriggerRight = [MonitorReal1Right]
+  
+  GridTop   = [Monitor1Top]
+  GridLeft  = [Monitor1Right] - [Monitor1Width] / 2
+  GridBottom= [Monitor1Top] + [Monitor1Height] / 2
+  GridRight = [Monitor1Right]
+  
+[3]
+
+  TriggerTop   = [MonitorReal1Bottom] - 30
+  TriggerLeft  = [MonitorReal1Left]
+  TriggerBottom= [MonitorReal1Bottom]
+  TriggerRight = [MonitorReal1Left] + 30
+  
+  GridTop   = [Monitor1Top] + [Monitor1Height] / 2 + 0.001
+  GridLeft  = [Monitor1Left]
+  GridBottom= [Monitor1Bottom]
+  GridRight = [Monitor1Left] + [Monitor1Width] / 2
+  
+[4]
+
+  TriggerTop   = [MonitorReal1Bottom] - 30
+  TriggerLeft  = [MonitorReal1Right] - 30
+  TriggerBottom= [MonitorReal1Bottom]
+  TriggerRight = [MonitorReal1Right]
+  
+  GridTop   = [Monitor1Top] + [Monitor1Height] / 2 + 0.001
+  GridLeft  = [Monitor1Right] - [Monitor1Width] / 2
+  GridBottom= [Monitor1Bottom]
+  GridRight = [Monitor1Right]
+  
+[5]
+
+  TriggerTop   = [MonitorReal1Top] + [MonitorReal1Height] * 0.3
+  TriggerLeft  = [MonitorReal1Left] + [MonitorReal1Width] * 0.2
+  TriggerBottom= [MonitorReal1Top] + [MonitorReal1Height] * 0.7
+  TriggerRight = [MonitorReal1Left] + [MonitorReal1Width] * 0.3
+  
+  GridTop   = [Monitor1Top] 
+  GridLeft  = [Monitor1Left] 
+  GridBottom= [Monitor1Bottom]
+  GridRight = [Monitor1Left] + [Monitor1Width] * 0.5
+  
+[6]
+
+  TriggerTop   = [MonitorReal1Top] + [MonitorReal1Height] * 0.3
+  TriggerLeft  = [MonitorReal1Left] + [MonitorReal1Width] * 0.7
+  TriggerBottom= [MonitorReal1Top] + [MonitorReal1Height] * 0.7
+  TriggerRight = [MonitorReal1Left] + [MonitorReal1Width] * 0.8
+  
+  GridTop   = [Monitor1Top] 
+  GridLeft  = [Monitor1Right] - [Monitor1Width] * 0.5
+  GridBottom= [Monitor1Bottom]
+  GridRight = [Monitor1Right]
+  
+[7]
+
+  TriggerTop   = [MonitorReal1Top]
+  TriggerLeft  = [MonitorReal1Left] + 30
+  TriggerBottom= [MonitorReal1Top] + 10
+  TriggerRight = [MonitorReal1Right] - 30
+  
+  GridTop   = [Monitor1Top]
+  GridLeft  = WindowWidth
+  GridBottom= [Monitor1Bottom]
+  GridRight = WindowWidth 
+
+[8]
+
+  TriggerTop   = [MonitorReal1Top] + 30
+  TriggerLeft  = [MonitorReal1Left]
+  TriggerBottom= [MonitorReal1Bottom] - 30
+  TriggerRight = [MonitorReal1Left] + 10
+  
+  GridTop   = WindowHeight
+  GridLeft  = [Monitor1Left]
+  GridBottom= WindowHeight
+  GridRight = [Monitor1Right] * 0.5
+  
+[9]
+
+  TriggerTop   = [MonitorReal1Top] + 30
+  TriggerLeft  = [MonitorReal1Right] - 10
+  TriggerBottom= [MonitorReal1Bottom] - 30
+  TriggerRight = [MonitorReal1Right]
+  
+  GridTop   = WindowHeight
+  GridLeft  = [Monitor1Right] * 0.5
+  GridBottom= WindowHeight
+  GridRight = [Monitor1Right]
+  
+[10]
+  
+  TriggerTop   = [MonitorReal1Top] + [MonitorReal1Height] * 0.7
+  TriggerLeft  = [MonitorReal1Left] + [MonitorReal1Width] * 0.7 - 120
+  TriggerBottom= [MonitorReal1Top] + [MonitorReal1Height] * 0.7 +30
+  TriggerRight = [MonitorReal1Left] + [MonitorReal1Width] * 0.7
+  
+  GridTop   = Restore
+  GridLeft  = Restore
+  GridBottom= Restore
+  GridRight = Restore
+
+[11]
+  
+  TriggerTop   = [MonitorReal1Top] +  [MonitorReal1Height] * 0.7
+  TriggerLeft  = [MonitorReal1Left] + [MonitorReal1Width] * 0.7 - 240
+  TriggerBottom= [MonitorReal1Top] +  [MonitorReal1Height] * 0.7 +30
+  TriggerRight = [MonitorReal1Left] + [MonitorReal1Width] * 0.7 - 120
+  
+  GridTop   = Maximize
+  GridLeft  = Maximize
+  GridBottom= Maximize
+  GridRight = Maximize
+
+[12]
+  
+  TriggerTop   = [MonitorReal1Top] +  [MonitorReal1Height] * 0.7
+  TriggerLeft  = [MonitorReal1Left] + [MonitorReal1Width] * 0.7 - 360
+  TriggerBottom= [MonitorReal1Top] +  [MonitorReal1Height] * 0.7 +30
+  TriggerRight = [MonitorReal1Left] + [MonitorReal1Width] * 0.7 - 240
+  
+  GridTop   = AlwaysOnTop
+  GridLeft  = AlwaysOnTop
+  GridBottom= AlwaysOnTop
+  GridRight = AlwaysOnTop
+
+[13]
+  
+  TriggerTop   = [MonitorReal1Top] +  [MonitorReal1Height] * 0.7
+  TriggerLeft  = [MonitorReal1Left] + [MonitorReal1Width] * 0.7 - 480
+  TriggerBottom= [MonitorReal1Top] +  [MonitorReal1Height] * 0.7 +30
+  TriggerRight = [MonitorReal1Left] + [MonitorReal1Width] * 0.7 - 360
+  
+  GridTop   = Run
+  GridLeft  = Plugins\MinimizeWindow.exe
+  GridBottom= Minimize
+  GridRight =

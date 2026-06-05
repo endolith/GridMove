@@ -1,0 +1,388 @@
+; nud super grid 01
+[Groups]
+NumberOfGroups = 34
+
+; *** LEFT SIDE TRIGGER
+[1] ;left side trigger -> stretch window to screen width
+TriggerTop		=[Monitor1Top]
+TriggerBottom	=[Monitor1Bottom] - 10
+TriggerLeft		=[Monitor1Left]
+TriggerRight	=[Monitor1Left] + 10
+
+; *** START OF LEFT ZONES
+GridTop   = WindowHeight
+GridLeft  = [Monitor1Left]
+GridBottom= WindowHeight
+GridRight = [Monitor1Right] 
+
+[2] ;top edge trigger -> left half 
+TriggerTop		=[Monitor1Top]
+TriggerBottom	=[Monitor1Bottom] * 0.04
+TriggerLeft		=[Monitor1Left] + 10
+TriggerRight	=[Monitor1Right] * 0.45
+
+GridTop			=[Monitor1Top]
+GridBottom		=[Monitor1Bottom]
+GridLeft		=[Monitor1Left]
+GridRight		=[Monitor1Right] * 0.5
+
+[3] ;left upper quarter
+TriggerTop		=[Monitor1Top] + [Monitor1Bottom] * 0.04
+TriggerBottom	=[Monitor1Bottom] * 0.25
+TriggerLeft		=[Monitor1Left] + 10
+TriggerRight	=[Monitor1Width] * 0.0625
+
+GridTop			=[Monitor1Top]
+GridBottom		=[Monitor1Bottom] * 0.25
+GridLeft		=[Monitor1Left]
+GridRight		=[Monitor1Right] * 0.5
+
+[4] ;left upper third
+TriggerTop		=[Monitor1Top] + [Monitor1Bottom] * 0.04
+TriggerBottom	=[Monitor1Bottom] * 0.33
+TriggerLeft		=[Monitor1Width] * 0.0625
+TriggerRight	=[Monitor1Width] * 0.125
+
+GridTop			=[Monitor1Top]
+GridBottom		=[Monitor1Bottom] * 0.33
+GridLeft		=[Monitor1Left]
+GridRight		=[Monitor1Right] * 0.5
+
+[5] ;left upper half
+TriggerTop		=[Monitor1Top] + [Monitor1Bottom] * 0.04
+TriggerBottom	=[Monitor1Bottom] * 0.5
+TriggerLeft		=[Monitor1Width] * 0.125
+TriggerRight	=[Monitor1Width] * 0.1875
+
+GridTop			=[Monitor1Top]
+GridBottom		=[Monitor1Bottom] * 0.5
+GridLeft		=[Monitor1Left]
+GridRight		=[Monitor1Right] * 0.5
+
+[6] ;left upper two thirds
+TriggerTop		=[Monitor1Top] + [Monitor1Bottom] * 0.04
+TriggerBottom	=[Monitor1Bottom] * 0.66
+TriggerLeft		=[Monitor1Width] * 0.1875
+TriggerRight	=[Monitor1Width] * 0.25
+
+GridTop			=[Monitor1Top]
+GridBottom		=[Monitor1Bottom] * 0.66
+GridLeft		=[Monitor1Left]
+GridRight		=[Monitor1Right] * 0.5
+
+[7] ;left upper three quarters
+TriggerTop		=[Monitor1Top] + [Monitor1Bottom] * 0.04
+TriggerBottom	=[Monitor1Bottom] * 0.75
+TriggerLeft		=[Monitor1Width] * 0.25
+TriggerRight	=[Monitor1Width] * 0.3125
+
+GridTop			=[Monitor1Top]
+GridBottom		=[Monitor1Bottom] * 0.75
+GridLeft		=[Monitor1Left]
+GridRight		=[Monitor1Right] * 0.5
+
+[8] ;left half
+TriggerTop		=[Monitor1Top] + [Monitor1Bottom] * 0.04
+TriggerBottom	=[Monitor1Bottom] - 10
+TriggerLeft		=[Monitor1Width] * 0.33
+TriggerRight	=[Monitor1Width] * 0.45
+
+GridTop			=[Monitor1Top]
+GridBottom		=[Monitor1Bottom]
+GridLeft		=[Monitor1Left]
+GridRight		=[Monitor1Right] * 0.5
+
+[33] ;left one third across and one half screen down
+TriggerTop		=[Monitor1Top] + [Monitor1Bottom] * 0.04
+TriggerBottom	=[Monitor1Bottom] * 0.5
+TriggerLeft		=[Monitor1Width] * 0.3125
+TriggerRight	=[Monitor1Width] * 0.33
+
+GridTop			=[Monitor1Top]
+GridBottom		=[Monitor1Bottom] * 0.5
+GridLeft		=[Monitor1Left]
+GridRight		=[Monitor1Right] * 0.33
+
+[34] ;left one third across and one half screen up
+TriggerTop		=[Monitor1Top] + [Monitor1Bottom] * 0.5
+TriggerBottom	=[Monitor1Bottom] - 10
+TriggerLeft		=[Monitor1Width] * 0.3125
+TriggerRight	=[Monitor1Width] * 0.33
+
+GridTop			=[Monitor1Top] + [Monitor1Bottom] * 0.5
+GridBottom		=[Monitor1Bottom]
+GridLeft		=[Monitor1Left]
+GridRight		=[Monitor1Right] * 0.33
+
+; *** LOWER LEFT ZONES
+[9] ;left bottom three quarters
+TriggerTop		=[Monitor1Top] + [Monitor1Bottom] * 0.25
+TriggerBottom	=[Monitor1Bottom] - 10 
+TriggerLeft		=[Monitor1Left] + 10
+TriggerRight	=[Monitor1Width] * 0.0625
+
+GridTop			=[Monitor1Top] + [Monitor1Bottom] * 0.25
+GridBottom		=[Monitor1Bottom]
+GridLeft		=[Monitor1Left]
+GridRight		=[Monitor1Right] * 0.5
+
+[10] ;left bottom two thirds
+TriggerTop		=[Monitor1Top] + [Monitor1Bottom] * 0.33
+TriggerBottom	=[Monitor1Bottom] - 10
+TriggerLeft		=[Monitor1Width] * 0.0625
+TriggerRight	=[Monitor1Width] * 0.125
+
+GridTop			=[Monitor1Top] + [Monitor1Bottom] * 0.33
+GridBottom		=[Monitor1Bottom]
+GridLeft		=[Monitor1Left]
+GridRight		=[Monitor1Right] * 0.5
+
+[11] ;left bottom half
+TriggerTop		=[Monitor1Top] + [Monitor1Bottom] * 0.5
+TriggerBottom	=[Monitor1Bottom] - 10
+TriggerLeft		=[Monitor1Width] * 0.125
+TriggerRight	=[Monitor1Width] * 0.1875
+
+GridTop			=[Monitor1Bottom] * 0.5
+GridBottom		=[Monitor1Bottom]
+GridLeft		=[Monitor1Left]
+GridRight		=[Monitor1Right] * 0.5
+
+[12] ;left bottom third
+TriggerTop		=[Monitor1Top] + [Monitor1Bottom] * 0.66
+TriggerBottom	=[Monitor1Bottom] - 10
+TriggerLeft		=[Monitor1Width] * 0.1875
+TriggerRight	=[Monitor1Width] * 0.25
+
+GridTop			=[Monitor1Top] + [Monitor1Bottom] * 0.66
+GridBottom		=[Monitor1Bottom]
+GridLeft		=[Monitor1Left]
+GridRight		=[Monitor1Right] * 0.5
+
+[13] ;left bottom quarter
+TriggerTop		=[Monitor1Top] + [Monitor1Bottom] * 0.75
+TriggerBottom	=[Monitor1Bottom] - 10
+TriggerLeft		=[Monitor1Width] * 0.25
+TriggerRight	=[Monitor1Width] * 0.3125
+
+GridTop			=[Monitor1Bottom] * 0.75
+GridBottom		=[Monitor1Bottom]
+GridLeft		=[Monitor1Left]
+GridRight		=[Monitor1Right] * 0.5
+; *** END OF LEFT ZONES
+
+
+; *** START OF RIGHT ZONES
+[14] ;top edge trigger -> right half
+TriggerTop		=[Monitor1Top]
+TriggerBottom	=[Monitor1Bottom] * 0.04
+TriggerLeft		=[Monitor1Left] + [Monitor1Right] * 0.55
+TriggerRight	=[Monitor1Right]
+
+GridTop			=[Monitor1Top]
+GridBottom		=[Monitor1Bottom]
+GridLeft		=[Monitor1Right] * 0.5
+GridRight		=[Monitor1Right]
+
+[15] ;right half
+TriggerTop		=[Monitor1Top] + [Monitor1Bottom] * 0.04
+TriggerBottom	=[Monitor1Bottom] - 10
+TriggerLeft		=[Monitor1Width] * 0.55
+TriggerRight	=[Monitor1Width] * 0.6875
+
+GridTop			=[Monitor1Top]
+GridBottom		=[Monitor1Bottom]
+GridLeft		=[Monitor1Right] * 0.5
+GridRight		=[Monitor1Right]
+
+[16] ;right upper three quarters
+TriggerTop		=[Monitor1Top] + [Monitor1Bottom] * 0.04
+TriggerBottom	=[Monitor1Bottom] * 0.75
+TriggerLeft		=[Monitor1Width] * 0.6875
+TriggerRight	=[Monitor1Width] * 0.75
+
+GridTop			=[Monitor1Top]
+GridBottom		=[Monitor1Bottom] * 0.75
+GridLeft		=[Monitor1Right] * 0.5
+GridRight		=[Monitor1Right]
+
+[17] ;right upper two thirds
+TriggerTop		=[Monitor1Top] + [Monitor1Bottom] * 0.04
+TriggerBottom	=[Monitor1Bottom] * 0.66
+TriggerLeft		=[Monitor1Width] * 0.75
+TriggerRight	=[Monitor1Width] * 0.8125
+
+GridTop			=[Monitor1Top]
+GridBottom		=[Monitor1Bottom] * 0.66
+GridLeft		=[Monitor1Right] * 0.5
+GridRight		=[Monitor1Right]
+
+[18] ;right upper half
+TriggerTop		=[Monitor1Top] + [Monitor1Bottom] * 0.04
+TriggerBottom	=[Monitor1Bottom] * 0.5
+TriggerLeft		=[Monitor1Width] * 0.8125
+TriggerRight	=[Monitor1Width] * 0.875
+
+GridTop			=[Monitor1Top]
+GridBottom		=[Monitor1Bottom] * 0.5
+GridLeft		=[Monitor1Right] * 0.5
+GridRight		=[Monitor1Right]
+
+[19] ;right upper third
+TriggerTop		=[Monitor1Top] + [Monitor1Bottom] * 0.04
+TriggerBottom	=[Monitor1Bottom] * 0.33
+TriggerLeft		=[Monitor1Width] * 0.875
+TriggerRight	=[Monitor1Width] * 0.9375
+
+GridTop			=[Monitor1Top]
+GridBottom		=[Monitor1Bottom] * 0.33
+GridLeft		=[Monitor1Right] * 0.5
+GridRight		=[Monitor1Right]
+
+[20] ;right upper quarter
+TriggerTop		=[Monitor1Top] + [Monitor1Bottom] * 0.04
+TriggerBottom	=[Monitor1Bottom] * 0.25
+TriggerLeft		=[Monitor1Right] * 0.9375
+TriggerRight	=[Monitor1Width]
+
+GridTop			=[Monitor1Top]
+GridBottom		=[Monitor1Bottom] * 0.25
+GridLeft		=[Monitor1Right] * 0.5
+GridRight		=[Monitor1Right]
+
+; *** LOWER RIGHT ZONES
+[21] ;right bottom quarter
+TriggerTop		=[Monitor1Top] + [Monitor1Bottom] * 0.75
+TriggerBottom	=[Monitor1Bottom] - 10
+TriggerLeft		=[Monitor1Width] * 0.6875
+TriggerRight	=[Monitor1Width] * 0.75
+
+GridTop			=[Monitor1Bottom] * 0.75
+GridBottom		=[Monitor1Bottom]
+GridLeft		=[Monitor1Right] * 0.5
+GridRight		=[Monitor1Right]
+
+[22] ;right bottom third
+TriggerTop		=[Monitor1Top] + [Monitor1Bottom] * 0.66
+TriggerBottom	=[Monitor1Bottom] - 10
+TriggerLeft		=[Monitor1Right] * 0.75
+TriggerRight	=[Monitor1Width] * 0.8125
+
+GridTop			=[Monitor1Bottom] * 0.66
+GridBottom		=[Monitor1Bottom]
+GridLeft		=[Monitor1Right] * 0.5
+GridRight		=[Monitor1Right]
+
+[23] ;right bottom half
+TriggerTop		=[Monitor1Top] + [Monitor1Bottom] * 0.5
+TriggerBottom	=[Monitor1Bottom] - 10
+TriggerLeft		=[Monitor1Right] * 0.8125
+TriggerRight	=[Monitor1Width] * 0.875
+
+GridTop			=[Monitor1Bottom] * 0.5
+GridBottom		=[Monitor1Bottom]
+GridLeft		=[Monitor1Right] * 0.5
+GridRight		=[Monitor1Right]
+
+[24] ;right bottom two thirds
+TriggerTop		=[Monitor1Top] + [Monitor1Bottom] * 0.33
+TriggerBottom	=[Monitor1Bottom] - 10
+TriggerLeft		=[Monitor1Right] * 0.875
+TriggerRight	=[Monitor1Width] * 0.9375
+
+GridTop			=[Monitor1Bottom] * 0.33
+GridBottom		=[Monitor1Bottom]
+GridLeft		=[Monitor1Right] * 0.5
+GridRight		=[Monitor1Right]
+
+[25] ;right bottom three quarters
+TriggerTop		=[Monitor1Top] + [Monitor1Bottom] * 0.25
+TriggerBottom	=[Monitor1Bottom] - 10
+TriggerLeft		=[Monitor1Right] * 0.9375
+TriggerRight	=[Monitor1Width]
+
+GridTop			=[Monitor1Bottom] * 0.25
+GridBottom		=[Monitor1Bottom]
+GridLeft		=[Monitor1Right] * 0.5
+GridRight		=[Monitor1Right]
+;END OF RIGHT ZONES
+
+
+[26] ;ontop
+TriggerTop		=[Monitor1Top]
+TriggerBottom	=[Monitor1Bottom] * 0.04
+TriggerLeft		=[Monitor1Right] * 0.45
+TriggerRight	=[Monitor1Width] * 0.55
+
+GridTop			=AlwaysOnTop
+GridBottom		=AlwaysOnTop
+GridLeft		=AlwaysOnTop
+GridRight		=AlwaysOnTop
+
+[27] ;center large
+TriggerTop		=[Monitor1Top] + [Monitor1Bottom] * 0.04
+TriggerBottom	=[Monitor1Bottom] * 0.10
+TriggerLeft		=[Monitor1Right] * 0.45
+TriggerRight	=[Monitor1Width] * 0.55
+
+GridTop			=[Monitor1Bottom] * 0.05
+GridBottom		=[Monitor1Bottom] * 0.95
+GridLeft		=[Monitor1Right] * 0.15
+GridRight		=[Monitor1Right] * 0.85
+
+[28] ;center small
+TriggerTop		=[Monitor1Top] + [Monitor1Bottom] * 0.10
+TriggerBottom	=[Monitor1Bottom] * 0.16
+TriggerLeft		=[Monitor1Right] * 0.45
+TriggerRight	=[Monitor1Width] * 0.55
+
+GridTop			=[Monitor1Bottom] * 0.05
+GridBottom		=[Monitor1Bottom] * 0.8
+GridLeft		=[Monitor1Right] * 0.25
+GridRight		=[Monitor1Right] * 0.75
+
+[29] ;full width lower one quarter upwards from the bottom
+TriggerTop		=[Monitor1Top] + [Monitor1Bottom] * 0.75
+TriggerBottom	=[Monitor1Bottom] - 10
+TriggerLeft		=[Monitor1Right] * 0.45
+TriggerRight	=[Monitor1Width] * 0.55
+
+GridTop			=[Monitor1Bottom] * 0.75
+GridBottom		=[Monitor1Bottom]
+GridLeft		=[Monitor1Left]
+GridRight		=[Monitor1Right]
+
+[30] ;restore
+TriggerTop		=[Monitor1Top] + [Monitor1Bottom] * 0.16
+TriggerBottom	=[Monitor1Bottom] * 0.75
+TriggerLeft		=[Monitor1Right] * 0.45
+TriggerRight	=[Monitor1Width] * 0.55
+
+GridTop			=restore
+GridBottom		=restore
+GridLeft		=restore
+GridRight		=restore
+
+; *** BOTTOM EDGE TRIGGERS
+[31] ; left third
+TriggerTop		=[Monitor1Bottom] - 10
+TriggerBottom	=[Monitor1Bottom]
+TriggerLeft		=[Monitor1Left]
+TriggerRight	=[Monitor1Width] * 0.33
+
+GridTop			=[Monitor1Top]
+GridBottom		=[Monitor1Bottom]
+GridLeft		=[Monitor1Left]
+GridRight		=[Monitor1Right] * 0.33
+
+[32] ; right two thirds
+TriggerTop		=[Monitor1Bottom] - 10
+TriggerBottom	=[Monitor1Bottom]
+TriggerLeft		=[Monitor1Width] * 0.33
+TriggerRight	=[Monitor1Width]
+
+GridTop			=[Monitor1Top]
+GridBottom		=[Monitor1Bottom]
+GridLeft		=[Monitor1Right] * 0.33
+GridRight		=[Monitor1Right]
+; *** END OF BOTTOM EDGE TRIGGERS
