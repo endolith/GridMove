@@ -1,0 +1,12 @@
+# macOS folder metadata
+.DS_Store
+
+# Vim swap files
+*.swp
+*.swo
+
+# Windows shortcuts
+*.lnk
+
+# Windows thumbnail cache
+Thumbs.db
