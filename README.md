@@ -1,6 +1,3 @@
-15.09.2016 - Fix WinMove for Windows 10.
-------------------------
-
 GridMove
 ========
 
@@ -13,10 +10,15 @@ Source code organization
 
 * GridMove.ahk - Main program, most of the functionality
 * files.ahk - Configuration and Grid parsing
-* command.ahk - Keyboard (command) interface 
+* command.ahk - Keyboard (command) interface
 * calc.ahk - Evaluates the .grid files
 * helper.ahk - Tooltips for first run
 * strings.ahk - Language file
 * Aero\_lib.ahk - Library for handling Aero look
 
 This work is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 United States License.
+
+Updates
+-------
+
+15.09.2016 - Fix WinMove for Windows 10.
