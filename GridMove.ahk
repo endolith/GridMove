@@ -875,6 +875,11 @@ setGuiColors()
 
 creategroups:
   gui,destroy
+  ; Disable AHK's built-in GUI DPI scaling so that pixel positions computed from
+  ; SysGet (physical pixels) are placed 1:1 on screen, not multiplied by
+  ; A_ScreenDPI/96 a second time. Without this, at 125% scaling every coordinate
+  ; is scaled by 1.25 again (e.g. 1920/3=640 becomes 800, off by one third-width).
+  Gui -DPIScale
   setGuiColors()
   loop,%NGroups%
   {
