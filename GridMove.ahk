@@ -117,6 +117,8 @@
   WindowXBuffer = 
   WindowYBuffer = 
 
+  DragRestoreActive := false
+
   ;if DebugMode
   ;  Traytip,GridMove,Creating the grid,10
 
@@ -347,11 +349,41 @@ startWithWindowsQ()
 
 ;*******************Drop Zone Mode 
 
+BeginDragRestore:
+  DragRestoreId := WindowId
+  DragRestoreLeft := WinLeft
+  DragRestoreTop := WinTop
+  DragRestoreWidth := WinWidth
+  DragRestoreHeight := WinHeight
+  DragRestoreActive := true
+  Hotkey, Esc, on
+return
+
+RestoreDragWindow:
+  WinGetClass, DragWinClass, ahk_id %DragRestoreId%
+  WinRestore, ahk_id %DragRestoreId%
+  if ShouldUseSizeMoveMessage(DragWinClass)
+    SendMessage WM_ENTERSIZEMOVE, , , ,ahk_id %DragRestoreId%
+  if Windows10
+    WinSnap("ahk_id" DragRestoreId, DragRestoreLeft, DragRestoreTop, DragRestoreWidth, DragRestoreHeight)
+  else
+    WinMove, ahk_id %DragRestoreId%, ,%DragRestoreLeft%,%DragRestoreTop%,%DragRestoreWidth%,%DragRestoreHeight%
+  if ShouldUseSizeMoveMessage(DragWinClass)
+    SendMessage WM_EXITSIZEMOVE, , , ,ahk_id %DragRestoreId%
+return
+
+EndDragRestore:
+  DragRestoreActive := false
+  Hotkey, Esc, off
+  Canceled := false
+return
+
 DropZoneMode:  
   DropZoneModeFlag := true
   gosub,showgroups
   Hotkey,RButton,on
-  Hotkey,Esc,on
+  if not DragRestoreActive
+    Hotkey,Esc,on
   Canceled := False
   CoordMode,Mouse,Screen
   hideGui2()
@@ -362,8 +394,8 @@ DropZoneMode:
       Critical, on
       Gui,2:Hide
       Hotkey,RButton,off
-      Hotkey,Esc,off
       DropZoneModeFlag := false
+      GoSub, EndDragRestore
       Critical, off
       return      
       }  
@@ -427,8 +459,8 @@ DropZoneMode:
   DropZoneModeFlag := false 
   Gui,2:Hide
   Hotkey,RButton,off
-  Hotkey,Esc,off
   GoSub,SnapWindow
+  GoSub, EndDragRestore
   Gosub,hidegroups
 return
 
@@ -443,6 +475,8 @@ hideGui2()
 }
   
 cancel:
+  if DragRestoreActive
+    GoSub, RestoreDragWindow
   if not canceled
   {
     canceled := True 
@@ -516,6 +550,7 @@ MButtonDragActivate:
 
   Winactivate, ahk_id %window%
   Hotkey = MButton
+  GoSub, BeginDragRestore
   GoSub, DropZoneMode
   return
 
@@ -588,6 +623,7 @@ MousePosition:
     {
       Hotkey = LButton
       sendinput {LButton up} 
+      GoSub, BeginDragRestore
       GoSub,DropZoneMode
       Settimer, MousePosition,10
       return
@@ -601,6 +637,7 @@ MousePosition:
     {
       Hotkey = LButton
       sendinput {LButton up} 
+      GoSub, BeginDragRestore
       GoSub,DropZoneMode
       Settimer, MousePosition,10
       return
@@ -618,14 +655,18 @@ MousePosition:
   CoordMode,Mouse,Screen
   EdgeFlag := true
   SetTimer, EdgeMove, Off
+  GoSub, BeginDragRestore
   loop
   {
     MouseGetPos, MouseX, MouseY
 
     GetKeyState, State, LButton, P
-    If (state = "U" or MousePositionLock)
+    If (state = "U" or MousePositionLock or Canceled)
     {
       SetTimer, EdgeMove, Off
+      if Canceled
+        sendinput, {LButton up}
+      GoSub, EndDragRestore
       Settimer, MousePosition,10
       return
     }
